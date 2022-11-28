@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sales Manager Application</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Sales Records</h1>
+      <a href="/signup">signup</a>
+      <a href="/insert_genre">Insert Genre</a>
+      <br /><br />
+      <table border="1" cellpadding="10">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>email</th>
+            <th>username</th>
+            <th>password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="sale : ${listCustomers}">
+            <td th:text="${sale.id}">ID</td>
+            <td th:text="${sale.customer_name}">Name</td>
+            <td th:text="${sale.email}">email</td>
+            <td th:text="${sale.user_name}">username</td>
+            <td th:text="${sale.password}">password</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
