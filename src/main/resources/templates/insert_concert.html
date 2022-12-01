@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Insert Concert</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Please Insert The New Genre</h1>
+      <br />
+      <a href="/insert_venue">New Vanue</a>
+      <form
+        action="#"
+        th:action="@{/insertConcert}"
+        th:object="${concert}"
+        method="post"
+      >
+        <table border="0" cellpadding="10">
+          <tr>
+            <td>Concert Name:</td>
+            <td><input type="text" th:field="*{concert_name}" /></td>
+          </tr>
+          <tr>
+            <td>Concert Date:</td>
+            <td><input type="date" th:field="*{thedate}" /></td>
+          </tr>
+          <tr>
+            <td>Venue Name:</td>
+            <td><input type="text" th:field="*{venue_id}" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit">add</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

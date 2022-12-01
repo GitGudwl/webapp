@@ -17,7 +17,7 @@ public class Appcontroller {
     @Autowired
     private CustomerDao dao;
 
-    @RequestMapping("/")
+    @RequestMapping("/user")
     public String view(Model model) {
         List<Customer> listCustomers = dao.test();
         model.addAttribute("listCustomers", listCustomers);
@@ -30,7 +30,6 @@ public class Appcontroller {
         model.addAttribute("customer", customer);
         return ("signup");
     }
-
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signup(@ModelAttribute("customer") Customer customer) {
@@ -47,6 +46,5 @@ public class Appcontroller {
             return "redirect:/signup";
         }
     }
-
 
 }

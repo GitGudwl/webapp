@@ -15,19 +15,17 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>email</th>
-            <th>username</th>
-            <th>password</th>
+            <th>Concert</th>
+            <th>Date</th>
+            <th>Venue ID</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="sale : ${listCustomers}">
-            <td th:text="${sale.id}">ID</td>
-            <td th:text="${sale.customer_name}">Name</td>
-            <td th:text="${sale.email}">email</td>
-            <td th:text="${sale.user_name}">username</td>
-            <td th:text="${sale.password}">password</td>
+          <tr th:each="concert : ${listConcerts}">
+            <td th:text="${concert.id}">ID</td>
+            <td th:text="${concert.concert_name}">Name</td>
+            <td th:text="${concert.thedate}">email</td>
+            <td th:text="${concert.venue_id}">username</td>
           </tr>
         </tbody>
       </table>

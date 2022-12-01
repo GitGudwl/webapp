@@ -2,6 +2,8 @@ package com.ticketstore.webapp.Dao;
 
 import java.util.List;
 
+import javax.print.DocFlavor.STRING;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,9 +19,9 @@ public class GenreDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Genre> list() {
-        String sql = "SELECT * FROM GENRE";
-        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Genre.class));
+    public List<String> list() {
+        String sql = "SELECT GENRE_NAME FROM GENRE";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(String.class));
     }
 
     public void insertGenre(String genre_name) {
@@ -27,4 +29,8 @@ public class GenreDao {
         jdbcCall.execute(genre_name);
     }
 
+    public List<Genre> listGenre() {
+        String sql = "SELECT * FROM GENRE";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Genre.class));
+    }
 }
