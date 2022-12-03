@@ -16,7 +16,7 @@ public class VenueController {
     @Autowired
     private VenueDao venueDao;
 
-    @RequestMapping("/insert_venue")
+    @RequestMapping("/insert_concert/insert_venue")
     public String insertVenue(Model model) {
         Venue venue = new Venue();
         model.addAttribute("venue", venue);
@@ -31,6 +31,6 @@ public class VenueController {
         }
         venueDao.insertVenue(venue.getVenue_name(), venue.getLocation(), venue.getType(), venue.getCapacity());
 
-        return "redirect:/";
+        return "redirect:/insert_concert";
     }
 }

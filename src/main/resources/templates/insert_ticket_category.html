@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Insert Ticket Category</title>
+  </head>
+  <body>
+    <div align="center">
+      <h1>Please Insert The New Ticket Category</h1>
+      <br />
+      <form
+        action="#"
+        th:action="@{/insertTicketCategory}"
+        th:object="${ticketCategory}"
+        method="post"
+      >
+        <table border="0" cellpadding="10">
+          <tr>
+            <td>Description :</td>
+            <td><input type="text" th:field="*{desctiption}" /></td>
+          </tr>
+          <tr>
+            <td> Concert : </td>
+            <td><select th:field="*{Concert_id}">
+                <option th:each="concert : ${concerts}" th:value="${concert.id}"
+                  th:text="${concert.concert_name}"></option>
+            </td>
+          </tr>
+          <tr>
+            <td>Price :</td>
+            <td><input type="text" placeholder="1000000" th:field="*{Price}" /></td>
+          </tr>
+          <tr>
+            <td>Stock :</td>
+            <td><input type="text"  th:field="*{stock}" /></td>
+          </tr>
+            <td colspan="2"><button type="submit">add</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

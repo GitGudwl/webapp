@@ -6,9 +6,9 @@
   </head>
   <body>
     <div align="center">
-      <h1>Please Insert The New Genre</h1>
+      <h1>Please Insert The New Concert</h1>
       <br />
-      <a href="/insert_venue">New Vanue</a>
+      <a href="/insert_concert/insert_venue">New Vanue</a>
       <form
         action="#"
         th:action="@{/insertConcert}"
@@ -26,7 +26,10 @@
           </tr>
           <tr>
             <td>Venue Name:</td>
-            <td><input type="text" th:field="*{venue_id}" /></td>
+            <td><select th:field="*{venue_id}">
+              <option th:each="venue : ${venues}" th:value="${venue.venue_name}"
+                th:text="${venue.venue_name}"></option>
+            </td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit">add</button></td>

@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ticketstore.webapp.Dao.ConcertDao;
+import com.ticketstore.webapp.Dao.VenueDao;
 import com.ticketstore.webapp.model.Concert;
+import com.ticketstore.webapp.model.Venue;
 
 @Controller
 public class concertController {
 
     @Autowired
     ConcertDao dao;
+
+    @Autowired
+    VenueDao venueDao;
 
     @RequestMapping("/")
     public String concertView(Model model) {
@@ -49,7 +54,9 @@ public class concertController {
     @RequestMapping("/insert_concert")
     public String insertConcertPage(Model model) {
         Concert concert = new Concert();
+        List<Venue> listVenues = venueDao.List();
         model.addAttribute("concert", concert);
+        model.addAttribute("venues", listVenues);
         return ("insert_concert");
     }
 

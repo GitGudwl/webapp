@@ -48,4 +48,9 @@ public class ConcertDao {
         String sql = "SELECT ID FROM VENUE WHERE VENUE_NAME = ?";
         return jdbcTemplate.queryForObject(sql, String.class, venueName);
     }
+
+    public List<Concert> listConcert() {
+        String sql = "SELECT * FROM CONCERT";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Concert.class));
+    }
 }
